@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="main-container">
+
+    <!-- Dashboard Title -->
+    <h1 class="dashboard-title">Admin Dashboard</h1>
+
+    <!-- ===== HORIZONTAL ACTION CARDS ===== -->
+    <div class="card-row">
+
+        <!-- ADD BLOOD -->
+        <div class="card">
+            <h3>Add Blood</h3>
+            <form method="post">
+                <input type="number" name="bid" placeholder="Blood ID" required>
+                <input type="text" name="bgroup" placeholder="Group (A+, O-)" required>
+                <input type="number" name="count" placeholder="Bags" required>
+                <input type="date" name="expDate" required>
+                <button name="action" value="add">Add</button>
+            </form>
+        </div>
+
+        <!-- SEARCH BLOOD -->
+        <div class="card">
+            <h3>Search</h3>
+            <form method="post">
+                <input type="text" name="search_value" placeholder="ID / Group" required>
+                <button name="action" value="search">Search</button>
+            </form>
+
+            {% if search_result %}
+            <p class="result">
+                {{ search_result[0] }} |
+                {{ search_result[1] }} |
+                {{ search_result[2] }} |
+                {{ search_result[3] }}
+            </p>
+            {% endif %}
+        </div>
+
+        <!-- UPDATE BLOOD -->
+        <div class="card">
+            <h3>Update</h3>
+            <form method="post">
+                <input type="number" name="bid" placeholder="Blood ID" required>
+                <input type="number" name="new_count" placeholder="New Count" required>
+                <button name="action" value="update">Update</button>
+            </form>
+        </div>
+
+        <!-- DELETE BLOOD -->
+        <div class="card">
+            <h3>Delete</h3>
+            <form method="post">
+                <input type="date" name="expDate" required>
+                <button name="action" value="delete">Delete</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- ===== DISPLAY TABLE (FULL WIDTH) ===== -->
+    <div class="table-card">
+        <h3>Available Blood Stock</h3>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Group</th>
+                <th>Count</th>
+                <th>Expiry</th>
+            </tr>
+            {% for r in records %}
+            <tr>
+                <td>{{ r[0] }}</td>
+                <td>{{ r[1] }}</td>
+                <td>{{ r[2] }}</td>
+                <td>{{ r[3] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <a href="/logout"><button class="logout-btn">Logout</button></a>
+
+</div>
+
+</body>
+</html>

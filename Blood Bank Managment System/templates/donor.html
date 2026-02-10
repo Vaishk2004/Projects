@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Donor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Donor Panel</h2>
+
+    <form method="post">
+        <input type="text" name="name" placeholder="Donor Name" required><br><br>
+        <input type="text" name="mobile" placeholder="Mobile Number" required><br><br>
+        <input type="text" name="group" placeholder="Blood Group (A+, O-)" required><br><br>
+
+        <button type="submit">Add Donor</button>
+    </form>
+
+    {% if message %}
+        <p style="font-weight:bold; margin-top:15px;">{{ message }}</p>
+    {% endif %}
+
+    <a href="/"><button>Back</button></a>
+</div>
+
+</body>
+</html>

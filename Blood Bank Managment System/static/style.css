@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.container {
+    width: 400px;
+    margin: 120px auto;
+    padding: 30px;
+    text-align: center;
+    border-radius: 10px;
+    background-image: url("backimg.avif");
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+button {
+    width: 80%;
+    padding: 10px;
+    margin: 10px;
+    background: crimson;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: darkred;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+/* Main wrapper */
+.main-container {
+    width: 95%;
+    margin: 20px auto;
+}
+
+/* Title */
+.dashboard-title {
+    text-align: center;
+    color: white;
+    margin-bottom: 25px;
+}
+
+/* Horizontal cards */
+.card-row {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+/* Individual card */
+.card {
+    flex: 1;
+    background-image: url("back1.avif");
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.card h3 {
+    text-align: center;
+}
+
+/* Inputs */
+input {
+    width: 100%;
+    padding: 7px;
+    margin: 6px 0;
+}
+
+/* Buttons */
+button {
+    width: 100%;
+    padding: 8px;
+    background: crimson;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: darkred;
+}
+
+/* Table section */
+.table-card {
+    background-image: url("back1.avif");
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #333;
+    padding: 8px;
+    text-align: center;
+}
+
+/* Search result */
+.result {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Logout */
+.logout-btn {
+    margin-top: 20px;
+    background: black;
+}

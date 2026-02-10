@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receiver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Receiver Panel</h2>
+
+    <form method="post">
+        <input type="text" name="group" placeholder="Blood Group (A+, O-)" required><br><br>
+        <input type="number" name="qty" placeholder="Number of Bags" required><br><br>
+        <button type="submit">Request Blood</button>
+    </form>
+
+    {% if message %}
+        <p style="font-weight:bold; margin-top:15px;">{{ message }}</p>
+    {% endif %}
+
+    {% if result %}
+    {% if result.status == "issued" %}
+        <p style="font-weight:bold; color:green;">
+            {{ result.message }}
+        </p>
+    {% else %}
+        <h3>Blood not available</h3>
+        <p>You can contact the following donors:</p>
+
+        {% if result.donors %}
+            {% for d in result.donors %}
+                <p>
+                    <b>Name:</b> {{ d[0] }} <br>
+                    <b>Mobile:</b> {{ d[1] }} <br>
+                    <b>Blood Group:</b> {{ d[2] }}
+                </p>
+                <hr>
+            {% endfor %}
+        {% else %}
+            <p>No donors available for this blood group.</p>
+        {% endif %}
+    {% endif %}
+{% endif %}
+
+
+    <a href="/"><button>Back</button></a>
+</div>
+
+</body>
+</html>
+
